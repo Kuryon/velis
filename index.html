@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velis — Professional Polish Voice Actors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold text-gray-900">Velis</h1>
+            <p class="text-gray-600 mt-1">Professional Polish voice actors for your project</p>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold mb-6">Find the perfect Polish voice</h2>
+            <p class="text-xl mb-8 text-blue-100">Native speakers for dubbing, audiobooks, commercials, and more</p>
+            <a href="#talents" class="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 inline-block">Browse voice actors</a>
+        </div>
+    </section>
+
+    <!-- Talent Grid -->
+    <section id="talents" class="max-w-6xl mx-auto px-4 py-16">
+        <h3 class="text-3xl font-bold text-gray-900 mb-8">Featured voice actors</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Talent Card 1 -->
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="w-20 h-20 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-blue-700">AK</div>
+                <h4 class="text-xl font-semibold text-center mb-2">Anna Kowalska</h4>
+                <p class="text-gray-600 text-center text-sm mb-4">Warm, professional female voice. 10+ years experience in commercials and e-learning.</p>
+                <p class="text-center text-gray-900 font-bold mb-4">$50/min</p>
+                <button onclick="openQuoteForm('Anna Kowalska')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Request quote</button>
+            </div>
+
+            <!-- Talent Card 2 -->
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="w-20 h-20 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-green-700">MN</div>
+                <h4 class="text-xl font-semibold text-center mb-2">Marek Nowak</h4>
+                <p class="text-gray-600 text-center text-sm mb-4">Deep, authoritative male voice. Specializes in documentaries and corporate videos.</p>
+                <p class="text-center text-gray-900 font-bold mb-4">$60/min</p>
+                <button onclick="openQuoteForm('Marek Nowak')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Request quote</button>
+            </div>
+
+            <!-- Talent Card 3 -->
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="w-20 h-20 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-purple-700">KW</div>
+                <h4 class="text-xl font-semibold text-center mb-2">Kasia Wiśniewska</h4>
+                <p class="text-gray-600 text-center text-sm mb-4">Young, energetic voice. Perfect for games, animation, and YouTube content.</p>
+                <p class="text-center text-gray-900 font-bold mb-4">$45/min</p>
+                <button onclick="openQuoteForm('Kasia Wiśniewska')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Request quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Modal -->
+    <div id="quoteModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 class="text-2xl font-bold mb-4">Request a quote</h3>
+            <form id="quoteForm">
+                <input type="hidden" id="talentName" name="talent">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Your email</label>
+                    <input type="email" name="email" required class="w-full border rounded-lg px-3 py-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Project description</label>
+                    <textarea name="description" rows="4" required class="w-full border rounded-lg px-3 py-2" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Estimated length (minutes)</label>
+                    <input type="number" name="length" required class="w-full border rounded-lg px-3 py-2">
+                </div>
+                <div class="flex gap-3">
+                    <button type="submit" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Submit</button>
+                    <button type="button" onclick="closeQuoteForm()" class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Velis. Connecting the world with Polish voice talent.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openQuoteForm(talent) {
+            document.getElementById('talentName').value = talent;
+            document.getElementById('quoteModal').classList.remove('hidden');
+        }
+
+        function closeQuoteForm() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteForm').reset();
+        }
+
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Tutaj później dodasz Stripe/email integration
+            alert('Quote request submitted! We will contact you at ' + data.email);
+            closeQuoteForm();
+        });
+    </script>
+</body>
+</html>
