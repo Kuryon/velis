@@ -1,195 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velis — Professional Polish Voice Actors</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-white">
-    <!-- Header -->
-    <header class="border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">V</span>
-                </div>
-                <span class="text-xl font-semibold text-gray-900">Velis</span>
-            </div>
-            <a href="#talents" class="text-sm font-medium text-gray-600 hover:text-gray-900">Browse talent</a>
+export default function VelisLandingPage() {
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* Hero */}
+      <section className="flex flex-col items-center justify-center text-center px-6 py-24 border-b border-white/10">
+        <div className="w-20 h-20 rounded-3xl border border-yellow-500 flex items-center justify-center text-4xl font-bold text-yellow-500 mb-6 shadow-2xl">
+          V
         </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="pt-20 pb-24 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Find the perfect<br/>
-                <span class="text-indigo-600">Polish voice</span>
-            </h1>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                Native speakers for dubbing, audiobooks, commercials, and more. Professional quality, international reach.
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+          VELIS
+        </h1>
+
+        <p className="text-lg md:text-2xl text-white/70 max-w-2xl mb-8 leading-relaxed">
+          Pozyskujemy klientów dla lokalnych firm.
+          <br />
+          Model rozliczenia za efekt.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href="mailto:kontakt@getvelis.pl"
+            className="px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition"
+          >
+            Skontaktuj się
+          </a>
+
+          <a
+            href="#how"
+            className="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/5 transition"
+          >
+            Jak to działa
+          </a>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="px-6 py-24 max-w-6xl mx-auto" id="how">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+            <h3 className="text-2xl font-semibold mb-4">1. Pozyskujemy leady</h3>
+            <p className="text-white/70 leading-relaxed">
+              Znajdujemy osoby zainteresowane usługami lokalnych firm.
             </p>
-            <a href="#talents" class="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition text-lg shadow-lg shadow-indigo-600/20">
-                Browse voice actors
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
-        </div>
-    </section>
+          </div>
 
-    <!-- Stats -->
-    <section class="border-y border-gray-100 py-12 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto grid grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="text-4xl font-bold text-gray-900 mb-2">50+</div>
-                <div class="text-sm text-gray-600">Professional talents</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl font-bold text-gray-900 mb-2">12+</div>
-                <div class="text-sm text-gray-600">Countries served</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl font-bold text-gray-900 mb-2">48h</div>
-                <div class="text-sm text-gray-600">Average delivery</div>
-            </div>
-        </div>
-    </section>
+          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+            <h3 className="text-2xl font-semibold mb-4">2. Przekazujemy klientów</h3>
+            <p className="text-white/70 leading-relaxed">
+              Gotowe zapytania trafiają bezpośrednio do naszych partnerów.
+            </p>
+          </div>
 
-    <!-- Talent Grid -->
-    <section id="talents" class="max-w-7xl mx-auto px-6 py-20">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured voice actors</h2>
-            <p class="text-lg text-gray-600">Handpicked professionals ready for your next project</p>
+          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+            <h3 className="text-2xl font-semibold mb-4">3. Rozliczenie za efekt</h3>
+            <p className="text-white/70 leading-relaxed">
+              Płacisz tylko za realne wyniki, nie za obietnice.
+            </p>
+          </div>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- Talent Card 1 -->
-            <div class="group bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-xl hover:border-indigo-100 transition">
-                <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
-                    AK
-                </div>
-                <h3 class="text-xl font-semibold text-center mb-2 text-gray-900">Anna Kowalska</h3>
-                <p class="text-gray-600 text-center text-sm mb-6 leading-relaxed">
-                    Warm, professional female voice. 10+ years experience in commercials and e-learning.
-                </p>
-                <div class="flex items-center justify-center gap-2 mb-6">
-                    <span class="text-2xl font-bold text-gray-900">$50</span>
-                    <span class="text-sm text-gray-500">/min</span>
-                </div>
-                <button onclick="openQuoteForm('Anna Kowalska')" class="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 font-medium transition">
-                    Request quote
-                </button>
-            </div>
+      </section>
 
-            <!-- Talent Card 2 -->
-            <div class="group bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-xl hover:border-indigo-100 transition">
-                <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
-                    MN
-                </div>
-                <h3 class="text-xl font-semibold text-center mb-2 text-gray-900">Marek Nowak</h3>
-                <p class="text-gray-600 text-center text-sm mb-6 leading-relaxed">
-                    Deep, authoritative male voice. Specializes in documentaries and corporate videos.
-                </p>
-                <div class="flex items-center justify-center gap-2 mb-6">
-                    <span class="text-2xl font-bold text-gray-900">$60</span>
-                    <span class="text-sm text-gray-500">/min</span>
-                </div>
-                <button onclick="openQuoteForm('Marek Nowak')" class="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 font-medium transition">
-                    Request quote
-                </button>
-            </div>
+      {/* Industries */}
+      <section className="px-6 pb-24 max-w-6xl mx-auto">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-10 shadow-2xl">
+          <h2 className="text-4xl font-bold mb-8">Branże</h2>
 
-            <!-- Talent Card 3 -->
-            <div class="group bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-xl hover:border-indigo-100 transition">
-                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
-                    KW
-                </div>
-                <h3 class="text-xl font-semibold text-center mb-2 text-gray-900">Kasia Wiśniewska</h3>
-                <p class="text-gray-600 text-center text-sm mb-6 leading-relaxed">
-                    Young, energetic voice. Perfect for games, animation, and YouTube content.
-                </p>
-                <div class="flex items-center justify-center gap-2 mb-6">
-                    <span class="text-2xl font-bold text-gray-900">$45</span>
-                    <span class="text-sm text-gray-500">/min</span>
-                </div>
-                <button onclick="openQuoteForm('Kasia Wiśniewska')" class="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 font-medium transition">
-                    Request quote
-                </button>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white/80">
+            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
+              Detailing
             </div>
+            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
+              Remonty
+            </div>
+            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
+              Klimatyzacja
+            </div>
+            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
+              Usługi premium
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Quote Form Modal -->
-    <div id="quoteModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl">
-            <h3 class="text-2xl font-bold mb-6 text-gray-900">Request a quote</h3>
-            <form id="quoteForm">
-                <input type="hidden" id="talentName" name="talent">
-                <div class="mb-5">
-                    <label class="block text-sm font-medium mb-2 text-gray-700">Your email</label>
-                    <input type="email" name="email" required class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none">
-                </div>
-                <div class="mb-5">
-                    <label class="block text-sm font-medium mb-2 text-gray-700">Project description</label>
-                    <textarea name="description" rows="4" required class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none" placeholder="Tell us about your project..."></textarea>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-medium mb-2 text-gray-700">Estimated length (minutes)</label>
-                    <input type="number" name="length" required class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none">
-                </div>
-                <div class="flex gap-3">
-                    <button type="submit" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 font-medium transition">Submit request</button>
-                    <button type="button" onclick="closeQuoteForm()" class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl hover:bg-gray-200 font-medium transition">Cancel</button>
-                </div>
-            </form>
+      {/* CTA */}
+      <section className="px-6 pb-24 max-w-4xl mx-auto text-center">
+        <div className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-12 shadow-2xl">
+          <h2 className="text-4xl font-bold mb-6">
+            Szukasz nowych klientów?
+          </h2>
+
+          <p className="text-white/70 text-lg mb-8">
+            Napisz do nas i sprawdź model rozliczenia za efekt.
+          </p>
+
+          <a
+            href="mailto:kontakt@getvelis.pl"
+            className="inline-block px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition"
+          >
+            kontakt@getvelis.pl
+          </a>
         </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-8 text-center text-white/40 text-sm">
+        © 2026 Velis. All rights reserved.
+      </footer>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16 mt-24">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex items-center justify-center gap-2 mb-4">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">V</span>
-                </div>
-                <span class="text-xl font-semibold">Velis</span>
-            </div>
-            <p class="text-gray-400 text-sm">Connecting the world with Polish voice talent</p>
-            <p class="text-gray-500 text-xs mt-4">&copy; 2025 Velis. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        function openQuoteForm(talent) {
-            document.getElementById('talentName').value = talent;
-            document.getElementById('quoteModal').classList.remove('hidden');
-        }
-
-        function closeQuoteForm() {
-            document.getElementById('quoteModal').classList.add('hidden');
-            document.getElementById('quoteForm').reset();
-        }
-
-        document.getElementById('quoteModal').addEventListener('click', function(e) {
-            if (e.target === this) closeQuoteForm();
-        });
-
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            alert('Quote request submitted! We will contact you at ' + data.email);
-            closeQuoteForm();
-        });
-    </script>
-</body>
-</html>
+  );
+}
