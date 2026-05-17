@@ -1,102 +1,575 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VELIS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-black text-white font-sans">
+  <title>GETVELIS — AI Automation Agency</title>
 
-  <!-- HERO -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 border-b border-white/10">
-    <div class="w-20 h-20 rounded-3xl border border-yellow-500 flex items-center justify-center text-4xl font-bold text-yellow-500 mb-6 shadow-2xl">
-      V
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(0,255,200,0.15), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0,150,255,0.1), transparent 30%);
+      z-index: -1;
+    }
+
+    header {
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      background: rgba(5,5,5,0.7);
+      z-index: 100;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo p {
+      color: #888;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #00ffb3;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0,255,179,0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 8%;
+    }
+
+    .hero-container {
+      max-width: 1300px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(0,255,179,0.08);
+      border: 1px solid rgba(0,255,179,0.2);
+      color: #6fffd5;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+
+    .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00ffb3;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      70% { transform: scale(1.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    .hero h2 {
+      font-size: 78px;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #00ffb3, #00b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      margin-top: 30px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #9a9a9a;
+      max-width: 640px;
+    }
+
+    .hero-buttons {
+      margin-top: 42px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .stats {
+      margin-top: 60px;
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .stat h3 {
+      font-size: 42px;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .card {
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 32px;
+      padding: 35px;
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,255,179,0.08);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.05),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 20px;
+    }
+
+    .status {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(0,255,179,0.1);
+      border: 1px solid rgba(0,255,179,0.15);
+      color: #6fffd5;
+      font-size: 14px;
+    }
+
+    .workflow {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .workflow-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .workflow-item span {
+      color: #bbb;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00ffb3;
+      box-shadow: 0 0 14px #00ffb3;
+    }
+
+    .services {
+      padding: 120px 8%;
+    }
+
+    .section-title {
+      font-size: 54px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      color: #888;
+      font-size: 18px;
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 32px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,255,179,0.2);
+      box-shadow: 0 0 40px rgba(0,255,179,0.08);
+    }
+
+    .service-card h3 {
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .service-card p {
+      color: #999;
+      line-height: 1.7;
+    }
+
+    .contact {
+      padding: 120px 8%;
+      text-align: center;
+    }
+
+    .contact-box {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px;
+      border-radius: 36px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact h2 {
+      font-size: 56px;
+      margin-bottom: 24px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .contact p {
+      color: #999;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    footer {
+      padding: 40px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #666;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media(max-width: 980px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 56px;
+      }
+
+      .section-title,
+      .contact h2 {
+        font-size: 42px;
+      }
+
+      .contact-box {
+        padding: 45px 30px;
+      }
+    }
+
+    @media(max-width: 640px) {
+      header {
+        padding: 20px 6%;
+      }
+
+      .hero,
+      .services,
+      .contact {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h2 {
+        font-size: 44px;
+      }
+
+      .stats {
+        gap: 30px;
+      }
+
+      .stat h3 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <header>
+    <div class="logo">
+      <h1>GETVELIS</h1>
+      <p>AI Automation Agency</p>
     </div>
 
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-6">
-      VELIS
-    </h1>
+    <a href="#contact" class="btn btn-primary">
+      Book a Call
+    </a>
+  </header>
 
-    <p class="text-lg md:text-2xl text-white/70 max-w-2xl leading-relaxed mb-10">
-      Pozyskujemy klientów dla lokalnych firm.
-      <br>
-      Model rozliczenia za efekt.
+  <section class="hero">
+    <div class="hero-container">
+
+      <div>
+        <div class="badge">
+          <div class="pulse"></div>
+          AI systems that scale businesses
+        </div>
+
+        <h2>
+          Automate your
+          <span class="gradient">business with AI</span>
+        </h2>
+
+        <p>
+          We build AI automations, smart workflows and lead generation systems
+          for modern companies. Save time, increase revenue and scale faster.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            Start Project
+          </a>
+
+          <a href="#services" class="btn btn-secondary">
+            Explore Services
+          </a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>24/7</h3>
+            <p>AI workflows</p>
+          </div>
+
+          <div class="stat">
+            <h3>10x</h3>
+            <p>faster operations</p>
+          </div>
+
+          <div class="stat">
+            <h3>∞</h3>
+            <p>scalable systems</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <div class="card-top">
+          <div>
+            <p style="color:#888;font-size:14px;">Workflow Status</p>
+            <h3 style="margin-top:8px;font-size:24px;">
+              AI Automation Active
+            </h3>
+          </div>
+
+          <div class="status">
+            Online
+          </div>
+        </div>
+
+        <div class="workflow">
+
+          <div class="workflow-item">
+            <span>Lead generation AI</span>
+            <div class="dot"></div>
+          </div>
+
+          <div class="workflow-item">
+            <span>Email automation</span>
+            <div class="dot"></div>
+          </div>
+
+          <div class="workflow-item">
+            <span>CRM integrations</span>
+            <div class="dot"></div>
+          </div>
+
+          <div class="workflow-item">
+            <span>AI chatbot assistants</span>
+            <div class="dot"></div>
+          </div>
+
+          <div class="workflow-item">
+            <span>Client onboarding systems</span>
+            <div class="dot"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="services" id="services">
+
+    <h2 class="section-title">
+      What we build
+    </h2>
+
+    <p class="section-subtitle">
+      Custom AI systems and automation solutions designed to reduce manual work,
+      generate more leads and increase business efficiency.
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="mailto:kontakt@getvelis.pl" class="px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition duration-300">
-        Skontaktuj się
-      </a>
+    <div class="services-grid">
 
-      <a href="#how" class="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/5 transition duration-300">
-        Jak to działa
-      </a>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="px-6 py-24 max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-        <h3 class="text-2xl font-semibold mb-4">1. Pozyskujemy leady</h3>
-        <p class="text-white/70 leading-relaxed">
-          Znajdujemy osoby zainteresowane usługami lokalnych firm.
+      <div class="service-card">
+        <h3>AI Automations</h3>
+        <p>
+          Smart workflows that automate repetitive business processes and save hours every week.
         </p>
       </div>
 
-      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-        <h3 class="text-2xl font-semibold mb-4">2. Przekazujemy klientów</h3>
-        <p class="text-white/70 leading-relaxed">
-          Gotowe zapytania trafiają bezpośrednio do naszych partnerów.
+      <div class="service-card">
+        <h3>Lead Generation</h3>
+        <p>
+          AI-powered systems that find, qualify and organize new potential clients automatically.
         </p>
       </div>
 
-      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-        <h3 class="text-2xl font-semibold mb-4">3. Rozliczenie za efekt</h3>
-        <p class="text-white/70 leading-relaxed">
-          Płacisz tylko za realne wyniki, nie za obietnice.
+      <div class="service-card">
+        <h3>AI Chatbots</h3>
+        <p>
+          Intelligent assistants trained on your business that respond 24/7 to customers.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>CRM Integrations</h3>
+        <p>
+          Connect all your tools together and create seamless automated operations.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Email Systems</h3>
+        <p>
+          Automated email outreach and follow-up systems that increase conversions.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Custom Solutions</h3>
+        <p>
+          Tailored AI infrastructure built specifically for your company and workflow.
         </p>
       </div>
 
     </div>
+
   </section>
 
-  <!-- INDUSTRIES -->
-  <section class="px-6 pb-24 max-w-6xl mx-auto">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-2xl">
-      <h2 class="text-4xl font-bold mb-8">Branże</h2>
+  <section class="contact" id="contact">
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-white/80">
-        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Detailing</div>
-        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Remonty</div>
-        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Klimatyzacja</div>
-        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Usługi premium</div>
-      </div>
-    </div>
-  </section>
+    <div class="contact-box">
 
-  <!-- CTA -->
-  <section class="px-6 pb-24 max-w-4xl mx-auto text-center">
-    <div class="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-12 shadow-2xl">
-      <h2 class="text-4xl font-bold mb-6">
-        Szukasz nowych klientów?
+      <h2>
+        Ready to scale with AI?
       </h2>
 
-      <p class="text-white/70 text-lg mb-8">
-        Napisz do nas i sprawdź model rozliczenia za efekt.
+      <p>
+        Build modern automation systems for your business and eliminate repetitive work.
+        Let GETVELIS help you scale faster with AI.
       </p>
 
-      <a href="mailto:kontakt@getvelis.pl" class="inline-block px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition duration-300">
-        kontakt@getvelis.pl
+      <a href="mailto:hello@getvelis.pl" class="btn btn-primary">
+        hello@getvelis.pl
       </a>
+
     </div>
+
   </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-white/10 py-8 text-center text-white/40 text-sm">
-    © 2026 Velis. All rights reserved.
+  <footer>
+    © 2026 GETVELIS. All rights reserved.
   </footer>
 
 </body>
