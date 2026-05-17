@@ -1,111 +1,103 @@
-export default function VelisLandingPage() {
-  return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* Hero */}
-      <section className="flex flex-col items-center justify-center text-center px-6 py-24 border-b border-white/10">
-        <div className="w-20 h-20 rounded-3xl border border-yellow-500 flex items-center justify-center text-4xl font-bold text-yellow-500 mb-6 shadow-2xl">
-          V
-        </div>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELIS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans">
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-          VELIS
-        </h1>
-
-        <p className="text-lg md:text-2xl text-white/70 max-w-2xl mb-8 leading-relaxed">
-          Pozyskujemy klientów dla lokalnych firm.
-          <br />
-          Model rozliczenia za efekt.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href="mailto:kontakt@getvelis.pl"
-            className="px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition"
-          >
-            Skontaktuj się
-          </a>
-
-          <a
-            href="#how"
-            className="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/5 transition"
-          >
-            Jak to działa
-          </a>
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="px-6 py-24 max-w-6xl mx-auto" id="how">
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-            <h3 className="text-2xl font-semibold mb-4">1. Pozyskujemy leady</h3>
-            <p className="text-white/70 leading-relaxed">
-              Znajdujemy osoby zainteresowane usługami lokalnych firm.
-            </p>
-          </div>
-
-          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-            <h3 className="text-2xl font-semibold mb-4">2. Przekazujemy klientów</h3>
-            <p className="text-white/70 leading-relaxed">
-              Gotowe zapytania trafiają bezpośrednio do naszych partnerów.
-            </p>
-          </div>
-
-          <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
-            <h3 className="text-2xl font-semibold mb-4">3. Rozliczenie za efekt</h3>
-            <p className="text-white/70 leading-relaxed">
-              Płacisz tylko za realne wyniki, nie za obietnice.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="px-6 pb-24 max-w-6xl mx-auto">
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-10 shadow-2xl">
-          <h2 className="text-4xl font-bold mb-8">Branże</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white/80">
-            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
-              Detailing
-            </div>
-            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
-              Remonty
-            </div>
-            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
-              Klimatyzacja
-            </div>
-            <div className="p-4 rounded-2xl border border-white/10 bg-black/40">
-              Usługi premium
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-6 pb-24 max-w-4xl mx-auto text-center">
-        <div className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-12 shadow-2xl">
-          <h2 className="text-4xl font-bold mb-6">
-            Szukasz nowych klientów?
-          </h2>
-
-          <p className="text-white/70 text-lg mb-8">
-            Napisz do nas i sprawdź model rozliczenia za efekt.
-          </p>
-
-          <a
-            href="mailto:kontakt@getvelis.pl"
-            className="inline-block px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition"
-          >
-            kontakt@getvelis.pl
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8 text-center text-white/40 text-sm">
-        © 2026 Velis. All rights reserved.
-      </footer>
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 border-b border-white/10">
+    <div class="w-20 h-20 rounded-3xl border border-yellow-500 flex items-center justify-center text-4xl font-bold text-yellow-500 mb-6 shadow-2xl">
+      V
     </div>
-  );
-}
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-6">
+      VELIS
+    </h1>
+
+    <p class="text-lg md:text-2xl text-white/70 max-w-2xl leading-relaxed mb-10">
+      Pozyskujemy klientów dla lokalnych firm.
+      <br>
+      Model rozliczenia za efekt.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="mailto:kontakt@getvelis.pl" class="px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition duration-300">
+        Skontaktuj się
+      </a>
+
+      <a href="#how" class="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/5 transition duration-300">
+        Jak to działa
+      </a>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="px-6 py-24 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+        <h3 class="text-2xl font-semibold mb-4">1. Pozyskujemy leady</h3>
+        <p class="text-white/70 leading-relaxed">
+          Znajdujemy osoby zainteresowane usługami lokalnych firm.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+        <h3 class="text-2xl font-semibold mb-4">2. Przekazujemy klientów</h3>
+        <p class="text-white/70 leading-relaxed">
+          Gotowe zapytania trafiają bezpośrednio do naszych partnerów.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-xl">
+        <h3 class="text-2xl font-semibold mb-4">3. Rozliczenie za efekt</h3>
+        <p class="text-white/70 leading-relaxed">
+          Płacisz tylko za realne wyniki, nie za obietnice.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="px-6 pb-24 max-w-6xl mx-auto">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-2xl">
+      <h2 class="text-4xl font-bold mb-8">Branże</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-white/80">
+        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Detailing</div>
+        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Remonty</div>
+        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Klimatyzacja</div>
+        <div class="p-4 rounded-2xl border border-white/10 bg-black/40">Usługi premium</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 pb-24 max-w-4xl mx-auto text-center">
+    <div class="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-12 shadow-2xl">
+      <h2 class="text-4xl font-bold mb-6">
+        Szukasz nowych klientów?
+      </h2>
+
+      <p class="text-white/70 text-lg mb-8">
+        Napisz do nas i sprawdź model rozliczenia za efekt.
+      </p>
+
+      <a href="mailto:kontakt@getvelis.pl" class="inline-block px-8 py-4 rounded-2xl bg-yellow-500 text-black font-semibold hover:scale-105 transition duration-300">
+        kontakt@getvelis.pl
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 text-center text-white/40 text-sm">
+    © 2026 Velis. All rights reserved.
+  </footer>
+
+</body>
+</html>
